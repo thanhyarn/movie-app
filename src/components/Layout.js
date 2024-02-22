@@ -5,12 +5,7 @@ import { Link } from "react-router-dom";
 import logoImg from "../logo.png";
 import { styled } from "@mui/system";
 import SearchMoviesSuggestion from "../containers/SearchMoviesSuggestion";
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+import Navbar from "./Navbar";
 
 const Img = styled("img")({
   marginLeft: "auto",
@@ -21,7 +16,7 @@ const Img = styled("img")({
 });
 
 const LayoutWrapper = styled("div")(({ theme }) => ({
-  margin: 24,
+  margin: 12,
   width: "auto",
   [theme.breakpoints.up("lg")]: {
     marginLeft: "auto",
@@ -30,18 +25,17 @@ const LayoutWrapper = styled("div")(({ theme }) => ({
   },
 }));
 
-const Layout = ({ children }) => {
+const Layout = ({ children, theme, setTheme }) => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <LayoutWrapper>
-        <Link to="/">
-          <Img src={logoImg} alt="The movie db" />
-        </Link>
-        <SearchMoviesSuggestion />
+    <>
+      <div className={`container ${theme}`}>
+        <CssBaseline />
+        {/* <LayoutWrapper> */}
+        <Navbar theme={theme} setTheme={setTheme} />
         {children}
-      </LayoutWrapper>
-    </ThemeProvider>
+        {/* </LayoutWrapper> */}
+      </div>
+    </>
   );
 };
 

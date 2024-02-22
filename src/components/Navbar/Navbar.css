@@ -1,0 +1,176 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 7%;
+  margin-bottom: 20px;
+  background: #f7f5f5;
+}
+
+.logo {
+  width: 80px;
+  cursor: pointer;
+}
+
+ul {
+  flex: 1;
+  list-style: none;
+  text-align: center;
+}
+
+ul li {
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.toggle-icon {
+  font-size: 50px;
+  margin-left: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #242424;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.search-box input {
+  padding: 6px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-size: 18px;
+  max-width: 200px;
+}
+
+.search-box input::placeholder {
+  color: #fff;
+}
+
+.container.dark {
+  background: #222;
+}
+
+.dark .navbar {
+  background: #000;
+  color: #fff;
+}
+
+.dark .search-box {
+  background: #fff;
+}
+
+.dark .search-box input {
+  color: #222;
+}
+
+.dark .search-box input::placeholder {
+  color: #222;
+}
+
+#mobile {
+  display: none;
+}
+
+#mobile .icon-navbar {
+  color: #fff;
+  font-size: 30px;
+  align-items: center;
+}
+
+.menu-button {
+  display: none; /* Hide on larger screens */
+  font-size: 40px;
+  margin-left: 15px;
+  color: #256196;
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    float: right;
+  }
+
+  .navbar ul {
+    display: none; /* Initially hide navigation */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navbar ul.active {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 5;
+    position: fixed;
+    top: 100px;
+    right: -50px;
+    width: 300px;
+    height: 100vh;
+    background: #256196;
+    box-shadow: 0 40px rgba(0, 0, 0, 0.1);
+    padding: 40px 0 0 10px;
+  }
+
+  .input-group {
+    display: none;
+  }
+
+  #navbar.active {
+    right: -300px;
+  }
+
+  #navbar li {
+    margin-bottom: 25px;
+    font-size: 25px;
+  }
+
+  .search-box {
+    order: 2;
+  }
+
+  .toggle-icon {
+    order: 3;
+  }
+  .menu-button {
+    order: 4;
+  }
+
+  #mobile {
+    display: block;
+  }
+
+  #mobile i {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .search-box {
+    width: 80%;
+    margin: 10px 30px;
+  }
+}
