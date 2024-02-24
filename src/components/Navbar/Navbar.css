@@ -24,6 +24,7 @@ ul li {
   font-size: 20px;
   cursor: pointer;
   font-family: Georgia, "Times New Roman", Times, serif;
+  text-decoration: none;
 }
 
 .toggle-icon {

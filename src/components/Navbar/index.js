@@ -6,6 +6,7 @@ import { MdDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Navbar = ({ theme, setTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +23,18 @@ const Navbar = ({ theme, setTheme }) => {
         {isOpen ? <IoClose /> : <FaBars />}
       </button>
       <ul id="navbar" className={`navbar ${!show ? "active" : ""}`}>
-        <li>Popular</li>
-        <li>Now Playing</li>
-        <li>Upcoming</li>
-        <li>Top Rated</li>
+        <li>
+          <NavLink to="/popular">Popular</NavLink>
+        </li>
+        <li>
+          <NavLink to="/now-playing">Now Playing</NavLink>
+        </li>
+        <li>
+          <NavLink to="/upcoming">Upcoming</NavLink>
+        </li>
+        <li>
+          <NavLink to="/top-rated">Top Rated</NavLink>
+        </li>
       </ul>
 
       <div className="search-box">
