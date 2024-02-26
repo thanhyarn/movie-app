@@ -14,6 +14,27 @@ export default class TheMovieDbApi {
     return response.json();
   };
 
+  getNowPlayingMovies = async (page = 1) => {
+    const response = await fetch(
+      `${this.apiBaseUrl}/movie/now_playing?api_key=${this.apiKey}&page=${page}`
+    );
+    return response.json();
+  };
+
+  getTopRatedMovies = async (page = 1) => {
+    const response = await fetch(
+      `${this.apiBaseUrl}/movie/top_rated?api_key=${this.apiKey}&page=${page}`
+    );
+    return response.json();
+  };
+
+  getUpcomingMovies = async (page = 1) => {
+    const response = await fetch(
+      `${this.apiBaseUrl}/movie/upcoming?api_key=${this.apiKey}&page=${page}`
+    );
+    return response.json();
+  };
+
   getMovie = async (id) => {
     const response = await fetch(
       `${this.apiBaseUrl}/movie/${id}?api_key=${this.apiKey}&append_to_response=recommendations`

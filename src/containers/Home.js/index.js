@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 
-import Slide from "../../components/Slide";
+import Hero from "../../components/Hero";
 
 import SlideImg1 from "../../slideImg/Img1.jpg";
 import SlideImg2 from "../../slideImg/Img2.jpg";
@@ -13,7 +13,7 @@ import SlideImg6 from "../../slideImg/Img6.jpg";
 const Home = () => {
   return (
     <>
-      <Slide />
+      <Hero />
     </>
   );
 };
