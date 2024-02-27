@@ -5,14 +5,12 @@ import MovieDetails from "./containers/MovieDetails";
 import Layout from "./components/Layout";
 import { useEffect, useState } from "react";
 
-
 import Home from "./containers/Home.js";
 import PopularMovies from "./containers/PopularMovies";
 import NowPlaying from "./containers/NowPlaying";
-import TopRated from "./containers/TopRated"
-import Upcoming from "./containers/Upcoming"
-
-
+import TopRated from "./containers/TopRated";
+import Upcoming from "./containers/Upcoming";
+import SearchResults from "./containers/SearchResults.js";
 
 function App() {
   const current_theme = localStorage.getItem("current_theme");
@@ -32,6 +30,7 @@ function App() {
           <Route path="/top-rated" element={<TopRated />}></Route>
           <Route path="/upcoming" element={<Upcoming />}></Route>
           <Route path="/movie/:id" element={<MovieDetails />}></Route>
+          <Route path="/search" element={<SearchResults />} />
         </Routes>
       </Layout>
     </BrowserRouter>

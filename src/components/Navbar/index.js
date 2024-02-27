@@ -11,9 +11,17 @@ import { NavLink } from "react-router-dom";
 const Navbar = ({ theme, setTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     setShow(!show);
+  };
+
+  const handleEnter = async (event) => {
+    if (event.key === "Enter") {
+      window.location.href = `/search?query=${searchValue}`;
+    }
   };
 
   return (
@@ -38,7 +46,13 @@ const Navbar = ({ theme, setTheme }) => {
       </ul>
 
       <div className="search-box">
-        <input type="text" placeholder="Search" />
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          onKeyPress={handleEnter}
+        />
         <FaSearch />
       </div>
 

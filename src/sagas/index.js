@@ -6,16 +6,17 @@ import {
   takeEvery,
   takeLatest,
 } from "redux-saga/effects";
-import { fetchedSearchMovies, searchMovies } from "../redux/search";
 import {
   getPopularMovies,
   fetchedPopularMovies,
   getNowPlayingMovies,
   fetchedNowPlayingMovies,
-  getTopRatedMovies, 
+  getTopRatedMovies,
   fetchedTopRatedMovies,
-  getUpcomingMovies, 
-  fetchedUpcomingMovies
+  getUpcomingMovies,
+  fetchedUpcomingMovies,
+  getSearchMovies,
+  fetchedSearchMovies,
 } from "../redux/movies";
 import { API_KEY } from "../config";
 import TheMovieDbApi from "../lib/api";
@@ -26,12 +27,6 @@ const api = new TheMovieDbApi(API_KEY);
 
 function* fetchGenres() {
   yield put(fetchedGenres(yield call(api.getGenres)));
-}
-
-function* fetchSearchMovies(action) {
-  yield delay(500);
-
-  yield put(fetchedSearchMovies(yield call(api.searchMovies, action.payload)));
 }
 
 function* fetchPopularMovies(action) {
@@ -58,6 +53,11 @@ function* fetchUpcomingMovies(action) {
   );
 }
 
+function* fetchSearchMovies(action) {
+  yield put(
+    fetchedSearchMovies(yield call(api.getSearchMovies, action.payload))
+  );
+}
 
 function* fetchMovie(action) {
   yield put(fetchedMovie(yield call(api.getMovie, action.payload)));
@@ -68,9 +68,9 @@ export default function* watcherSaga() {
     yield takeEvery(getMovie.type, fetchMovie),
     yield takeEvery(getPopularMovies.type, fetchPopularMovies),
     yield takeEvery(getNowPlayingMovies.type, fetchNowPlayingMovies),
-    yield takeEvery(getTopRatedMovies.type , fetchTopRatedMovies),
-    yield takeEvery(getUpcomingMovies.type , fetchUpcomingMovies),
+    yield takeEvery(getTopRatedMovies.type, fetchTopRatedMovies),
+    yield takeEvery(getUpcomingMovies.type, fetchUpcomingMovies),
     yield takeEvery(getGenres.type, fetchGenres),
-    yield takeLatest(searchMovies.type, fetchSearchMovies),
+    yield takeEvery(getSearchMovies.type, fetchSearchMovies),
   ]);
 }

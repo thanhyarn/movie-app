@@ -90,6 +90,24 @@ export const moviesSlice = createSlice({
       };
     },
 
+    getSearchMovies: (state, action) => {
+      return {
+        ...state,
+        isFetching: true,
+      };
+    },
+    fetchedSearchMovies: (state, action) => {
+      return {
+        ...state,
+        results: [...state.results, ...action.payload.results],
+        hasMore: action.payload.page < action.payload.total_pages,
+        totalResults: action.payload.total_results,
+        page: action.payload.page,
+        totalPages: action.payload.totalPages,
+        isFetching: false,
+      };
+    },
+
     resetState: (state) => {
       return initialState;
     },
@@ -105,6 +123,8 @@ export const {
   fetchedTopRatedMovies,
   getUpcomingMovies,
   fetchedUpcomingMovies,
+  getSearchMovies,
+  fetchedSearchMovies,
   resetState,
 } = moviesSlice.actions;
 

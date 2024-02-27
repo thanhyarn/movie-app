@@ -43,11 +43,19 @@ export default class TheMovieDbApi {
     return response.json();
   };
 
-  searchMovies = async (query) => {
+  searchMovies = async (query, page = 1) => {
     const response = await fetch(
-      `${this.apiBaseUrl}/search/movie?api_key=${this.apiKey}&query=${query}`
+      `${this.apiBaseUrl}/search/movie?api_key=${this.apiKey}&query=${query}&page=${page}`
     );
+    console.log(response);
+    return response.json();
+  };
 
+  getSearchMovies = async (query, page = 1) => {
+    const response = await fetch(
+      `${this.apiBaseUrl}/search/movie?api_key=${this.apiKey}&query=${query}&page=${page}`
+    );
+    console.log(response);
     return response.json();
   };
 

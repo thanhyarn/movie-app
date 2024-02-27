@@ -4,7 +4,7 @@ import { CssBaseline } from "@mui/material";
 import { Link } from "react-router-dom";
 import logoImg from "../logo.png";
 import { styled } from "@mui/system";
-import SearchMoviesSuggestion from "../containers/SearchMoviesSuggestion";
+import SearchMoviesSuggestion from "../containers/SearchResults";
 import Navbar from "./Navbar";
 
 const Img = styled("img")({
