@@ -25,49 +25,93 @@ const Navbar = ({ theme, setTheme }) => {
   };
 
   return (
-    <div className="navbar">
-      <img src={logo} alt="" className="logo" />
-      <button onClick={toggleMenu} className="menu-button">
-        {isOpen ? <IoClose /> : <FaBars />}
-      </button>
-      <ul id="navbar" className={`navbar ${!show ? "active" : ""}`}>
-        <li>
-          <NavLink to="/popular">Popular</NavLink>
-        </li>
-        <li>
-          <NavLink to="/now-playing">Now Playing</NavLink>
-        </li>
-        <li>
-          <NavLink to="/upcoming">Upcoming</NavLink>
-        </li>
-        <li>
-          <NavLink to="/top-rated">Top Rated</NavLink>
-        </li>
-      </ul>
+    <div className="header">
+      <div className="container">
+        <NavLink to={"/"}>
+          <img src={logo} />
+        </NavLink>
+        <div className="header-actions">
+          <button className="search-btn">
+            <FaSearch />
+          </button>
+          <button class="btn btn-primary">Wishlist</button>
+        </div>
+        <button class="menu-open-btn" data-menu-open-btn>
+          <FaBars />
+        </button>
+        <nav className="navbar">
+          <div className="navbar-top">
+            <a href="./index.html" class="logo">
+              <img src="./assets/images/logo.svg" alt="Filmlane logo" />
+            </a>
 
-      <div className="search-box">
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-          onKeyPress={handleEnter}
-        />
-        <FaSearch />
-      </div>
+            <button class="menu-close-btn" data-menu-close-btn>
+              <FaTimes />
+            </button>
+          </div>
+          <ul class="navbar-list">
+            <li>
+              <a href="./index.html" class="navbar-link">
+                Home
+              </a>
+            </li>
 
-      {theme == "light" ? (
-        <MdDarkMode className="toggle-icon" onClick={() => setTheme("dark")} />
-      ) : (
-        <CiLight className="toggle-icon" onClick={() => setTheme("light")} />
-      )}
+            <li>
+              <a href="#" class="navbar-link">
+                Movie
+              </a>
+            </li>
 
-      <div id="mobile">
-        {show ? (
-          <FaTimes className="icon-navbar navbar active" />
-        ) : (
-          <FaBars className="icon-navbar navbar" />
-        )}
+            <li>
+              <a href="#" class="navbar-link">
+                Tv Show
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-link">
+                Web Series
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-link">
+                Pricing
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-social-list">
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );

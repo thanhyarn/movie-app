@@ -13,6 +13,8 @@ const Movie = ({ movie, genres }) => {
     return `${hours} ${minutes}`;
   };
 
+  console.log(movie);
+
   return (
     <>
       {movie.recommendations && (
