@@ -2,112 +2,73 @@ import React from "react";
 import PosterFallback from "../../assets/no-poster.png";
 import dayjs from "dayjs";
 import "./style.css";
+import { CiPlay1 } from "react-icons/ci";
 
 const DetailBanner = ({ movie }) => {
+  console.log(movie);
   return (
-    <div className="detailsBanner">
-      {/* <div className="backdrop-img">
-        <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
-      </div> */}
-
-      <div className="opacity-layer">
-        <div className="content">
-          <div className="left">
-            {movie.poster_path ? (
-              <img
-                className="posterImg"
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              />
-            ) : (
-              <img className="posterImg" src={PosterFallback} />
-            )}
+    <>
+      <figure className="movie-detail-banner">
+        <img src="./assets/images/movie-4.png" alt="Free guy movie poster" />
+        <button className="play-btn">
+          <ion-icon name="play-circle-outline" />
+        </button>
+      </figure>
+      <div className="movie-detail-content">
+        <p className="detail-subtitle">New Episodes</p>
+        <h1 className="h1 detail-title">
+          Free <strong>Guy</strong>
+        </h1>
+        <div className="meta-wrapper">
+          <div className="badge-wrapper">
+            <div className="badge badge-fill">PG 13</div>
+            <div className="badge badge-outline">HD</div>
           </div>
-          <div className="right">
-            <div className="title">
-              {`${movie.name || movie.title} (${dayjs(
-                movie?.release_date
-              ).format("YYYY")})`}
+          <div className="ganre-wrapper">
+            <a href="#">Comedy,</a>
+            <a href="#">Action,</a>
+            <a href="#">Adventure,</a>
+            <a href="#">Science Fiction</a>
+          </div>
+          <div className="date-time">
+            <div>
+              <ion-icon name="calendar-outline" />
+              <time dateTime={2021}>2021</time>
             </div>
-            <div className="subtitle">{movie.tagline}</div>
-
-            {/* <Genres data={_genres} /> */}
-
-            <div className="overview">
-              <div className="heading">Overview</div>
-              <div className="description">{movie.overview}</div>
+            <div>
+              <ion-icon name="time-outline" />
+              <time dateTime="PT115M">115 min</time>
             </div>
-
-            <div className="info">
-              {movie.status && (
-                <div className="infoItem">
-                  <span className="text bold">Status: </span>
-                  <span className="text">{movie.status}</span>
-                </div>
-              )}
-              {movie.release_date && (
-                <div className="infoItem">
-                  <span className="text bold">Release Date: </span>
-                  <span className="text">
-                    {dayjs(movie.release_date).format("MMM D, YYYY")}
-                  </span>
-                </div>
-              )}
-              {movie.runtime && (
-                <div className="infoItem">
-                  <span className="text bold">Runtime: </span>
-                  <span className="text">
-                    {/* {toHoursAndMinutes(movie.runtime)} */}
-                    {movie.runtime}
-                  </span>
-                </div>
-              )}
-            </div>
-
-            {/* {director?.length > 0 && (
-              <div className="info">
-                <span className="text bold">Director: </span>
-                <span className="text">
-                  {director?.map((d, i) => (
-                    <span key={i}>
-                      {d.name}
-                      {director.length - 1 !== i && ", "}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            )} */}
-
-            {/* {writer?.length > 0 && (
-              <div className="info">
-                <span className="text bold">Writer: </span>
-                <span className="text">
-                  {writer?.map((d, i) => (
-                    <span key={i}>
-                      {d.name}
-                      {writer.length - 1 !== i && ", "}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            )} */}
-
-            {movie?.created_by?.length > 0 && (
-              <div className="info">
-                <span className="text bold">Creator: </span>
-                <span className="text">
-                  {movie?.created_by?.map((d, i) => (
-                    <span key={i}>
-                      {d.name}
-                      {movie?.created_by.length - 1 !== i && ", "}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            )}
           </div>
         </div>
+        <p className="storyline">
+          A bank teller called Guy realizes he is a background character in an
+          open world video game called Free City that will soon go offline.
+        </p>
+        <div className="details-actions">
+          <button className="share">
+            <ion-icon name="share-social" />
+            <span>Share</span>
+          </button>
+          <div className="title-wrapper">
+            <p className="title">Prime Video</p>
+            <p className="text">Streaming Channels</p>
+          </div>
+          <button className="btn btn-primary">
+            <ion-icon name="play" />
+            <span>Watch Now</span>
+          </button>
+        </div>
+        <a
+          href="./assets/images/movie-4.png"
+          download=""
+          className="download-btn"
+        >
+          <span>Download</span>
+          <ion-icon name="download-outline" />
+        </a>
       </div>
-    </div>
+    </>
   );
 };
 

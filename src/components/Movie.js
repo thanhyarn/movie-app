@@ -19,11 +19,11 @@ const Movie = ({ movie, genres }) => {
     <>
       {movie.recommendations && (
         <>
-          <DetailBanner movie={movie} />
-          {/* <Typography component="h2" variant="h4" gutterBottom={true}>
-            Recommended
-          </Typography> */}
-          {/* <Movies movies={movie.recommendations} genres={genres} /> */}
+          <section className="movie-detail">
+            <div className="container">
+              <DetailBanner movie={movie} />
+            </div>
+          </section>
         </>
       )}
     </>

@@ -271,6 +271,12 @@ body.active {
   color: var(--xiketic);
 }
 
+.movie-detail {
+  background-size: cover;
+  background-position: center;
+  padding-top: 160px;
+  padding-bottom: var(--section-padding);
+}
 
 /*-----------------------------------*\
  * #MEDIA QUERIES
