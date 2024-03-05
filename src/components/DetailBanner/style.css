@@ -24,7 +24,9 @@
   transition: var(--transition-1);
 }
 
-.play-btn:hover { background: hsla(0, 0%, 0%, 0.25); }
+.play-btn:hover {
+  background: hsla(0, 0%, 0%, 0.25);
+}
 
 .detail-subtitle {
   font-size: var(--fs-5);
@@ -33,11 +35,17 @@
   margin-bottom: 10px;
 }
 
-.detail-title { margin-bottom: 20px; }
+.vote {
+  margin-bottom: 20px;
+}
 
-.detail-title strong { color: var(--citrine); }
+.vote strong {
+  color: var(--citrine);
+}
 
-.movie-detail .meta-wrapper { margin-bottom: 30px; }
+.movie-detail .meta-wrapper {
+  margin-bottom: 30px;
+}
 
 .storyline {
   color: var(--gray-x);
@@ -72,7 +80,9 @@
   transition: var(--transition-1);
 }
 
-.details-actions .share:is(:hover, :focus) span { color: var(--citrine); }
+.details-actions .share:is(:hover, :focus) span {
+  color: var(--citrine);
+}
 
 .details-actions .title {
   color: var(--white);
@@ -91,7 +101,9 @@
   background: transparent;
 }
 
-.details-actions .btn-primary:is(:hover, :focus) { background: var(--citrine); }
+.details-actions .btn-primary:is(:hover, :focus) {
+  background: var(--citrine);
+}
 
 .download-btn {
   max-width: max-content;
@@ -108,4 +120,6 @@
   border-radius: 6px;
 }
 
-.download-btn ion-icon { font-size: 16px; }
+.download-btn ion-icon {
+  font-size: 16px;
+}

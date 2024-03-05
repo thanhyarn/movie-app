@@ -3,27 +3,31 @@ import PosterFallback from "../../assets/no-poster.png";
 import dayjs from "dayjs";
 import "./style.css";
 import { CiPlay1 } from "react-icons/ci";
+import { IoIosStar } from "react-icons/io";
 
 const DetailBanner = ({ movie }) => {
   console.log(movie);
   return (
     <>
       <figure className="movie-detail-banner">
-        <img src="./assets/images/movie-4.png" alt="Free guy movie poster" />
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt="Free guy movie poster"
+        />
         <button className="play-btn">
           <ion-icon name="play-circle-outline" />
         </button>
       </figure>
       <div className="movie-detail-content">
-        <p className="detail-subtitle">New Episodes</p>
-        <h1 className="h1 detail-title">
-          Free <strong>Guy</strong>
-        </h1>
+        <p className="detail-subtitle">{movie.title}</p>
+        <h2 className="h4 vote">
+          <strong>
+            <IoIosStar />
+            {movie.vote_average}
+          </strong>{" "}
+          | Vote Count : {movie.vote_count}
+        </h2>
         <div className="meta-wrapper">
-          <div className="badge-wrapper">
-            <div className="badge badge-fill">PG 13</div>
-            <div className="badge badge-outline">HD</div>
-          </div>
           <div className="ganre-wrapper">
             <a href="#">Comedy,</a>
             <a href="#">Action,</a>
@@ -41,10 +45,7 @@ const DetailBanner = ({ movie }) => {
             </div>
           </div>
         </div>
-        <p className="storyline">
-          A bank teller called Guy realizes he is a background character in an
-          open world video game called Free City that will soon go offline.
-        </p>
+        <p className="storyline">{movie.overview}</p>
         <div className="details-actions">
           <button className="share">
             <ion-icon name="share-social" />
