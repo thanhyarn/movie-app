@@ -1,0 +1,7 @@
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
