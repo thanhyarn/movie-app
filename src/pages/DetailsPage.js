@@ -10,7 +10,6 @@ import VideoPlay from "../components/VideoPlay";
 
 const DetailsPage = () => {
   const params = useParams();
-  console.log("params: ", params);
 
   const imageURL = useSelector((state) => state.movieData.imageURL);
   const { data } = useFetchDetails(`/${params.explore}/${params?.id}`);
@@ -26,8 +25,6 @@ const DetailsPage = () => {
   const [playVideo, setPlayVideo] = useState(false);
   const [playVideoId, setPlayVideoId] = useState("");
 
-  console.log("data: ", data);
-  console.log("castData: ", castData);
   const duration = (data?.runtime / 60).toFixed(1).split(".");
 
   const handlePlayVideo = async (data) => {
@@ -102,7 +99,7 @@ const DetailsPage = () => {
           <div>
             <h2 className="text-xl font-bold text-white mb-4">Cast:</h2>
             <div className="flex flex-wrap gap-5">
-              {castData?.cast?.map((starCast, index) => {
+              {castData?.cast?.slice(0, 20).map((starCast, index) => {
                 return (
                   <div
                     key={starCast.id + index}

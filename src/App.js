@@ -17,7 +17,7 @@ function App() {
 
       dispatch(setBannerData(response.data.results));
 
-      console.log("response", );
+     
     } catch (error) {
       console.log("error ", error);
     }
